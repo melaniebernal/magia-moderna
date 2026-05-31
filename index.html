@@ -103,15 +103,30 @@
   .svc h3{font-family:var(--display);font-size:2rem;font-weight:500;margin-bottom:14px}
   .svc p{color:var(--ink-soft);font-size:1.05rem}
 
+  /* PROCESS */
+  .process{background:var(--cream-deep)}
+  .process-intro{max-width:620px;margin-bottom:72px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:64px}
+  .steps:before{content:'';position:absolute;top:18px;left:calc(12.5% + 8px);right:calc(12.5% + 8px);height:1px;background:linear-gradient(90deg,var(--rose-deep),var(--mauve),var(--rose-deep));opacity:.22;z-index:0}
+  .step{padding:0 28px 0 0;position:relative;z-index:1}
+  .step:last-child{padding-right:0}
+  .step-num{font-family:var(--ui);font-size:.75rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:28px;display:flex;align-items:center;gap:0}
+  .step-dot{width:10px;height:10px;border-radius:50%;background:var(--rose-deep);opacity:.55;margin-right:14px;flex-shrink:0}
+  .step h3{font-family:var(--display);font-size:1.6rem;font-weight:500;line-height:1.15;margin-bottom:12px}
+  .step p{font-size:.98rem;color:var(--ink-soft);line-height:1.7}
+  .process-note{margin-top:60px;padding-top:40px;border-top:1px solid rgba(122,90,95,.16);font-family:var(--ui);font-size:.8rem;letter-spacing:.1em;color:var(--ink-soft);text-align:center}
+  .process-note em{font-style:italic;color:var(--mauve-deep)}
+
   /* CLIENTS */
   .clients{background:linear-gradient(180deg,var(--cream-deep),var(--cream))}
   .client-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:60px}
   .client{background:var(--cream);border:1px solid rgba(122,90,95,.16);border-radius:10px;padding:42px 34px;transition:.45s}
   .client:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(111,85,96,.14);border-color:var(--rose)}
   .client .tag{font-family:var(--ui);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:18px}
-  .client h3{font-family:var(--display);font-size:1.7rem;font-weight:500;line-height:1.1;margin-bottom:12px}
-  .client p{font-size:1rem;color:var(--ink-soft);margin-bottom:20px}
-  .client .handle{font-family:var(--ui);font-size:.82rem;letter-spacing:.06em;color:var(--mauve-deep)}
+  .client h3{font-family:var(--display);font-size:1.7rem;font-weight:500;line-height:1.15;margin-bottom:14px}
+  .client p{font-size:1rem;color:var(--ink-soft);line-height:1.68}
+  .work-note{margin-top:52px;font-family:var(--ui);font-size:.8rem;letter-spacing:.1em;color:var(--ink-soft);text-align:center}
+  .work-note em{font-style:italic;color:var(--mauve-deep)}
 
   /* CONTACT */
   .contact{background:var(--mauve-deep);color:var(--cream)}
@@ -149,6 +164,7 @@
     .nav-links{display:none}.menu-btn{display:block}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
     .svc-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr;gap:48px}.steps:before{display:none}
     .client-grid{grid-template-columns:1fr}
     .row{grid-template-columns:1fr}
     .wrap{padding:0 24px}
@@ -165,6 +181,7 @@
     <div class="nav-links">
       <a href="#about">Studio</a>
       <a href="#services">Services</a>
+      <a href="#process">Process</a>
       <a href="#work">Work</a>
       <a href="#contact" class="nav-cta">Inquire</a>
     </div>
@@ -224,32 +241,64 @@
   </div>
 </section>
 
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="process-intro reveal">
+      <div class="sec-label">How We Work</div>
+      <h2 class="sec-title">Clear from day one,<br><em>invested for the long run.</em></h2>
+      <p style="color:var(--ink-soft);font-size:1.15rem">Every partnership moves through four phases. No hand-offs, no account managers in the way — the same team that strategizes is the one that shows up every week.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num"><span class="step-dot"></span>01 &nbsp; Discovery</div>
+        <h3>The right-fit conversation.</h3>
+        <p>We start by learning your business, your customers, and where your presence stands today. We ask the questions most agencies skip — because strategy built on real understanding works differently than strategy built on assumptions.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num"><span class="step-dot"></span>02 &nbsp; Onboarding</div>
+        <h3>Organized before anything goes live.</h3>
+        <p>Brand audit. Channel setup. Content pillars. Voice guide. We build the foundation that keeps every post and every ad consistent — so nothing we create ever feels off-brand or accidental.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num"><span class="step-dot"></span>03 &nbsp; Creation</div>
+        <h3>Content that sounds like you.</h3>
+        <p>Posts, reels, stories, and paid campaigns — produced on schedule, reviewed with you, and published without you having to chase anyone. Modern tools power the pace. Your voice stays the brand.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num"><span class="step-dot"></span>04 &nbsp; Partnership</div>
+        <h3>Close, responsive, ongoing.</h3>
+        <p>Monthly performance reviews. Real-time communication. We stay close enough to catch the shift before it becomes a problem — and present enough that your brand never goes quiet.</p>
+      </div>
+    </div>
+    <div class="process-note reveal">We take on a limited number of clients at a time. <em>That's the point.</em></div>
+  </div>
+</section>
+
 <section class="clients" id="work">
   <div class="wrap">
     <div class="services-head reveal">
       <div class="sec-label">Selected Work</div>
-      <h2 class="sec-title">Brands we're <em>proud</em> to grow.</h2>
+      <h2 class="sec-title">Local brands,<br><em>lasting presence.</em></h2>
+      <p style="color:var(--ink-soft);font-size:1.15rem">A few of the businesses we're honored to grow. Client details available on request.</p>
     </div>
     <div class="client-grid">
       <div class="client reveal">
-        <div class="tag">Med Spa · Wellness</div>
-        <h3>HEAL Rejuvenation + Wellness</h3>
-        <p>Aesthetic & wellness practice in Palmetto Bay, building a calm, trustworthy presence in a competitive market.</p>
-        <div class="handle">@healingcornerco</div>
+        <div class="tag">Health &amp; Wellness · Miami</div>
+        <h3>A wellness studio in Miami.</h3>
+        <p>An aesthetic and wellness practice building a calm, trustworthy presence in a competitive market — and becoming the neighborhood's obvious choice.</p>
       </div>
       <div class="client reveal">
-        <div class="tag">Pediatric Speech Therapy</div>
-        <h3>Aligned With Me Therapy</h3>
-        <p>A speech-language pathology practice with a warm, human voice that meets families where they are.</p>
-        <div class="handle">@_alignedwithmetherapy</div>
+        <div class="tag">Pediatric Therapy · Miami</div>
+        <h3>A pediatric therapy provider.</h3>
+        <p>A speech-language pathology practice with a warm, human voice that meets bilingual families exactly where they are.</p>
       </div>
       <div class="client reveal">
-        <div class="tag">Real Estate Media</div>
-        <h3>Real Estate Visual Solutions</h3>
-        <p>South Florida real estate media & drone aerial work, positioned as the go-to for standout listings.</p>
-        <div class="handle">@realestatevisualsolutions</div>
+        <div class="tag">Real Estate Media · South Florida</div>
+        <h3>A real estate video company.</h3>
+        <p>Elevated listing media and drone aerials, positioned as the first call agents make when a property needs to stand out.</p>
       </div>
     </div>
+    <div class="work-note reveal">Interested in seeing the work? <em>We'd love to show you.</em> &nbsp;<a href="#contact" style="color:var(--mauve-deep);font-style:italic;border-bottom:1px solid var(--mauve);padding-bottom:2px">Get in touch</a></div>
   </div>
 </section>
 
