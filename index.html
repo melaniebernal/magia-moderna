@@ -10,16 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#f7f1ea;
-    --cream-deep:#efe5d9;
-    --rose:#c98a8a;
-    --rose-deep:#a96a6c;
-    --mauve:#9a7a86;
-    --mauve-deep:#6f5560;
-    --sage:#8a9a82;
-    --sage-deep:#5f6f57;
-    --ink:#4a3b40;
-    --ink-soft:#6a5a5f;
+    --cream:#f5ede0;
+    --cream-deep:#ece0cc;
+    --rose:#c9a96e;
+    --rose-deep:#a8854a;
+    --mauve:#3d5a7a;
+    --mauve-deep:#1e2d45;
+    --sage:#2a3f55;
+    --sage-deep:#4a6878;
+    --ink:#14202e;
+    --ink-soft:#3a5068;
     --display:'Cormorant Garamond',serif;
     --body:'Lora',serif;
     --ui:'Jost',sans-serif;
@@ -44,7 +44,7 @@
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:.4s;backdrop-filter:blur(0px)}
-  nav.scrolled{background:rgba(247,241,234,.82);backdrop-filter:blur(12px);padding:14px 0;box-shadow:0 1px 0 rgba(122,90,95,.12)}
+  nav.scrolled{background:rgba(245,237,224,.88);backdrop-filter:blur(12px);padding:14px 0;box-shadow:0 1px 0 rgba(30,45,69,.12)}
   .nav-inner{display:flex;justify-content:space-between;align-items:center}
   .logo{font-family:var(--display);font-size:1.55rem;font-weight:600;letter-spacing:.04em}
   .logo span{font-style:italic;color:var(--rose-deep)}
@@ -74,7 +74,7 @@
   .hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap;opacity:0;animation:rise 1s 1s forwards}
   .btn{font-family:var(--ui);font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;padding:16px 38px;border-radius:34px;transition:.4s;cursor:pointer;border:none}
   .btn-primary{background:var(--mauve-deep);color:var(--cream)}
-  .btn-primary:hover{background:var(--ink);transform:translateY(-2px);box-shadow:0 12px 30px rgba(111,85,96,.3)}
+  .btn-primary:hover{background:var(--ink);transform:translateY(-2px);box-shadow:0 12px 30px rgba(20,32,46,.35)}
   .btn-text{font-family:var(--ui);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--mauve);padding-bottom:3px;transition:.3s}
   .btn-text:hover{color:var(--ink);border-color:var(--ink)}
   @keyframes rise{to{opacity:1;transform:translateY(0)}}
@@ -84,7 +84,7 @@
   section{padding:120px 0;position:relative}
   .sec-label{font-family:var(--ui);font-size:.78rem;letter-spacing:.36em;text-transform:uppercase;color:var(--rose-deep);margin-bottom:20px}
   .sec-title{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;margin-bottom:30px;letter-spacing:-.01em}
-  .sec-title em{font-style:italic;color:var(--mauve-deep)}
+  .sec-title em{font-style:italic;color:var(--rose-deep)}
 
   /* ABOUT */
   .about{background:var(--cream-deep)}
@@ -96,7 +96,7 @@
 
   /* SERVICES */
   .services-head{max-width:620px;margin-bottom:70px}
-  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(122,90,95,.14);border:1px solid rgba(122,90,95,.14);border-radius:6px;overflow:hidden}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(30,45,69,.14);border:1px solid rgba(30,45,69,.14);border-radius:6px;overflow:hidden}
   .svc{background:var(--cream);padding:48px 44px;transition:.45s;position:relative}
   .svc:hover{background:var(--cream-deep)}
   .svc-num{font-family:var(--ui);font-size:.8rem;letter-spacing:.2em;color:var(--rose-deep);margin-bottom:22px}
@@ -114,14 +114,14 @@
   .step-dot{width:10px;height:10px;border-radius:50%;background:var(--rose-deep);opacity:.55;margin-right:14px;flex-shrink:0}
   .step h3{font-family:var(--display);font-size:1.6rem;font-weight:500;line-height:1.15;margin-bottom:12px}
   .step p{font-size:.98rem;color:var(--ink-soft);line-height:1.7}
-  .process-note{margin-top:60px;padding-top:40px;border-top:1px solid rgba(122,90,95,.16);font-family:var(--ui);font-size:.8rem;letter-spacing:.1em;color:var(--ink-soft);text-align:center}
+  .process-note{margin-top:60px;padding-top:40px;border-top:1px solid rgba(30,45,69,.16);font-family:var(--ui);font-size:.8rem;letter-spacing:.1em;color:var(--ink-soft);text-align:center}
   .process-note em{font-style:italic;color:var(--mauve-deep)}
 
   /* CLIENTS */
   .clients{background:linear-gradient(180deg,var(--cream-deep),var(--cream))}
   .client-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:60px}
-  .client{background:var(--cream);border:1px solid rgba(122,90,95,.16);border-radius:10px;padding:42px 34px;transition:.45s}
-  .client:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(111,85,96,.14);border-color:var(--rose)}
+  .client{background:var(--cream);border:1px solid rgba(30,45,69,.16);border-radius:10px;padding:42px 34px;transition:.45s}
+  .client:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(20,32,46,.14);border-color:var(--rose)}
   .client .tag{font-family:var(--ui);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:18px}
   .client h3{font-family:var(--display);font-size:1.7rem;font-weight:500;line-height:1.15;margin-bottom:14px}
   .client p{font-size:1rem;color:var(--ink-soft);line-height:1.68}
@@ -145,7 +145,7 @@
   .submit:hover{background:var(--rose);color:var(--cream);transform:translateY(-2px)}
   .form-msg{font-family:var(--ui);font-size:.9rem;letter-spacing:.04em;padding:14px;border-radius:6px;display:none}
   .form-msg.show{display:block}
-  .form-msg.ok{background:rgba(138,154,130,.25);color:#e8f0e4}
+  .form-msg.ok{background:rgba(201,169,110,.2);color:#f0e8d4}
   .form-msg.err{background:rgba(201,138,138,.25);color:#f6e4e4}
 
   /* FOOTER */
@@ -234,7 +234,7 @@
     <div class="svc-grid reveal">
       <div class="svc"><div class="svc-num">01</div><h3>Social Strategy</h3><p>A clear, intentional plan that turns your presence into a reason people choose you.</p></div>
       <div class="svc"><div class="svc-num">02</div><h3>Content Creation</h3><p>Posts, stories, and visuals that look and sound unmistakably like your brand.</p></div>
-      <div class="svc"><div class="svc-num">03</div><h3>Meta Ads</h3><p>Thoughtful paid campaigns across Instagram & Facebook that reach the right neighbors.</p></div>
+      <div class="svc"><div class="svc-num">03</div><h3>Paid Media &amp; Local Search</h3><p>Paid campaigns across Meta and Google, plus local search presence — Google Business, Apple Maps, and the SEO fundamentals that make sure your neighborhood finds you first.</p></div>
       <div class="svc"><div class="svc-num">04</div><h3>Onboarding</h3><p>A warm, organized start so working together feels effortless from day one.</p></div>
       <div class="svc" style="grid-column:1/-1"><div class="svc-num">05</div><h3>Client Relationship Management</h3><p>An ongoing partnership — we stay close, stay responsive, and stay invested in your growth.</p></div>
     </div>
