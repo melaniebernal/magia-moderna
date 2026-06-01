@@ -55,13 +55,26 @@
   .nav-cta{padding:9px 22px;border:1px solid var(--mauve);border-radius:30px;color:var(--mauve-deep)!important;transition:.3s}
   .nav-cta:hover{background:var(--mauve);color:var(--cream)!important}.nav-cta:after{display:none!important}
   .menu-btn{display:none;font-family:var(--ui);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink);padding:6px 0}
+  .nav-right{display:flex;align-items:center;gap:28px}
+
+  /* LANGUAGE TOGGLE */
+  .lang-toggle{display:inline-flex;align-items:center;font-family:var(--ui);font-size:.72rem;letter-spacing:.14em;border:1px solid rgba(30,45,69,.28);border-radius:30px;overflow:hidden;flex-shrink:0}
+  .lang-toggle button{font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink-soft);padding:6px 13px;transition:.3s;line-height:1}
+  .lang-toggle button:hover:not(.active){color:var(--ink)}
+  .lang-toggle button.active{background:var(--mauve-deep);color:var(--cream)}
+  .lang-toggle.dark{border-color:rgba(245,237,224,.3)}
+  .lang-toggle.dark button{color:rgba(245,237,224,.6)}
+  .lang-toggle.dark button:hover:not(.active){color:var(--cream)}
+  .lang-toggle.dark button.active{background:var(--rose);color:var(--mauve-deep)}
+  .mobile-lang{margin:0 0 30px;opacity:0;transition:.35s .12s}
+  .mobile-menu.open .mobile-lang{opacity:1}
 
   /* MOBILE MENU OVERLAY */
-  .mobile-menu{position:fixed;inset:0;z-index:200;background:var(--mauve-deep);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.2,.7,.2,1)}
+  .mobile-menu{position:fixed;inset:0;z-index:200;background:var(--mauve-deep);display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding:84px 0 48px;overflow-y:auto;-webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.2,.7,.2,1)}
   .mobile-menu.open{opacity:1;pointer-events:all}
-  .mobile-close{position:absolute;top:26px;right:28px;font-family:var(--ui);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,224,.5);background:none;border:none;cursor:pointer;padding:8px;transition:.25s}
+  .mobile-close{position:fixed;top:26px;right:28px;z-index:2;font-family:var(--ui);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,224,.5);background:none;border:none;cursor:pointer;padding:8px;transition:.25s}
   .mobile-close:hover{color:var(--cream)}
-  .mobile-logo{font-family:var(--display);font-size:1.3rem;font-weight:600;color:rgba(245,237,224,.25);letter-spacing:.04em;position:absolute;top:28px;left:28px}
+  .mobile-logo{font-family:var(--display);font-size:1.3rem;font-weight:600;color:rgba(245,237,224,.25);letter-spacing:.04em;position:fixed;top:28px;left:28px;z-index:2}
   .mobile-logo span{font-style:italic}
   .mobile-links{display:flex;flex-direction:column;align-items:center;width:100%;gap:0}
   .mobile-links a{font-family:var(--display);font-size:clamp(2.2rem,9vw,3rem);font-weight:400;color:var(--cream);text-align:center;padding:16px 40px;width:100%;letter-spacing:.01em;border-bottom:1px solid rgba(245,237,224,.07);transition:.25s;opacity:0;transform:translateY(16px)}
@@ -226,28 +239,38 @@
 <nav id="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="logo">Magia <span>Moderna</span></a>
-    <div class="nav-links">
-      <a href="#about">Studio</a>
-      <a href="#values">Our Heart</a>
-      <a href="#services">Services</a>
-      <a href="#ai">AI Tools</a>
-      <a href="#contact" class="nav-cta">Inquire</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#about" data-en="Studio" data-es="Estudio">Studio</a>
+        <a href="#values" data-en="Our Heart" data-es="Nuestro Corazón">Our Heart</a>
+        <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+        <a href="#ai" data-en="AI Tools" data-es="Herramientas IA">AI Tools</a>
+        <a href="#contact" class="nav-cta" data-en="Inquire" data-es="Contáctanos">Inquire</a>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
     </div>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <div class="mobile-logo">Magia <span>Moderna</span></div>
-  <button class="mobile-close" id="menuClose" aria-label="Close menu">✕ Close</button>
+  <button class="mobile-close" id="menuClose" aria-label="Close menu" data-en="✕ Close" data-es="✕ Cerrar">✕ Close</button>
+  <div class="lang-toggle dark mobile-lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" class="active">EN</button>
+    <button type="button" data-lang="es">ES</button>
+  </div>
   <nav class="mobile-links">
-    <a href="#about">Studio</a>
-    <a href="#values">Our Heart</a>
-    <a href="#services">Services</a>
-    <a href="#ai">AI Tools</a>
-    <a href="#process">Process</a>
-    <a href="#work">Work</a>
-    <a href="#contact" class="m-cta">Inquire</a>
+    <a href="#about" data-en="Studio" data-es="Estudio">Studio</a>
+    <a href="#values" data-en="Our Heart" data-es="Nuestro Corazón">Our Heart</a>
+    <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+    <a href="#ai" data-en="AI Tools" data-es="Herramientas IA">AI Tools</a>
+    <a href="#process" data-en="Process" data-es="Proceso">Process</a>
+    <a href="#work" data-en="Work" data-es="Proyectos">Work</a>
+    <a href="#contact" class="m-cta" data-en="Inquire" data-es="Contáctanos">Inquire</a>
   </nav>
 </div>
 
@@ -256,15 +279,15 @@
     <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   </div>
   <div class="wrap hero-inner">
-    <div class="eyebrow">A Family-Run Digital Studio · Miami</div>
+    <div class="eyebrow" data-en="A Family-Run Digital Studio · Miami" data-es="Un Estudio Digital Familiar · Miami">A Family-Run Digital Studio · Miami</div>
     <h1>
-      <span class="l">Modernize your business.</span>
-      <span class="l">Keep your <em>life.</em></span>
+      <span class="l" data-en="Modernize your business." data-es="Moderniza tu negocio.">Modernize your business.</span>
+      <span class="l" data-en="Keep your <em>life.</em>" data-es="Conserva tu <em>vida.</em>">Keep your <em>life.</em></span>
     </h1>
-    <p class="hero-sub">We're a family-run digital studio bringing modern tools and a little magic to the local businesses people already love. Run by parents, built for the people behind the work.</p>
+    <p class="hero-sub" data-en="We're a family-run digital studio bringing modern tools and a little magic to the local businesses people already love. Run by parents, built for the people behind the work." data-es="Somos un estudio digital familiar que lleva herramientas modernas y un poco de magia a los negocios locales que la gente ya quiere. Dirigido por padres, hecho para las personas detrás del trabajo.">We're a family-run digital studio bringing modern tools and a little magic to the local businesses people already love. Run by parents, built for the people behind the work.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-      <a href="#services" class="btn-text">See how we work</a>
+      <a href="#contact" class="btn btn-primary" data-en="Start a Conversation" data-es="Inicia una conversación">Start a Conversation</a>
+      <a href="#services" class="btn-text" data-en="See how we work" data-es="Mira cómo trabajamos">See how we work</a>
     </div>
   </div>
 </header>
@@ -272,15 +295,15 @@
 <section class="about" id="about">
   <div class="wrap about-grid">
     <div class="reveal">
-      <div class="sec-label">The Studio</div>
-      <h2 class="sec-title">Modern magic,<br><em>made personal.</em></h2>
+      <div class="sec-label" data-en="The Studio" data-es="El Estudio">The Studio</div>
+      <h2 class="sec-title" data-en="Modern magic,<br><em>made personal.</em>" data-es="Magia moderna,<br><em>hecha personal.</em>">Modern magic,<br><em>made personal.</em></h2>
     </div>
     <div class="reveal">
-      <p class="lead">We're a small, family-run studio. We built Magia Moderna the way we try to live: with intention, and with heart.</p>
-      <p>We bring value two ways. We modernize how your business runs, with modern tools and AI workflows that take the busywork off your plate. And we polish how it shows up, with a website and content your customers can feel the care in.</p>
-      <p>We work with a handful of local businesses at a time, mostly families like ours. We build a presence that runs without running you ragged, so your work leaves room for your life.</p>
+      <p class="lead" data-en="We're a small, family-run studio. We built Magia Moderna the way we try to live: with intention, and with heart." data-es="Somos un estudio pequeño y familiar. Construimos Magia Moderna como intentamos vivir: con intención y con corazón.">We're a small, family-run studio. We built Magia Moderna the way we try to live: with intention, and with heart.</p>
+      <p data-en="We bring value two ways. We modernize how your business runs, with modern tools and AI workflows that take the busywork off your plate. And we polish how it shows up, with a website and content your customers can feel the care in." data-es="Aportamos valor de dos maneras. Modernizamos cómo funciona tu negocio, con herramientas modernas y flujos de trabajo con IA que te quitan el trabajo tedioso de encima. Y pulimos cómo se presenta, con un sitio web y contenido en los que tus clientes pueden sentir el cuidado.">We bring value two ways. We modernize how your business runs, with modern tools and AI workflows that take the busywork off your plate. And we polish how it shows up, with a website and content your customers can feel the care in.</p>
+      <p data-en="We work with a handful of local businesses at a time, mostly families like ours. We build a presence that runs without running you ragged, so your work leaves room for your life." data-es="Trabajamos con un puñado de negocios locales a la vez, en su mayoría familias como la nuestra. Construimos una presencia que funciona sin agotarte, para que tu trabajo deje espacio para tu vida.">We work with a handful of local businesses at a time, mostly families like ours. We build a presence that runs without running you ragged, so your work leaves room for your life.</p>
       <div class="ethos">
-        <div class="q">"Presence over virality."</div>
+        <div class="q" data-en='"Presence over virality."' data-es='"Presencia antes que viralidad."'>"Presence over virality."</div>
       </div>
     </div>
   </div>
@@ -289,25 +312,25 @@
 <section class="values" id="values">
   <div class="wrap">
     <div class="values-head reveal">
-      <div class="sec-label" style="text-align:center">Our Heart</div>
-      <h2 class="sec-title">Rooted in what <em>matters most.</em></h2>
-      <p style="color:var(--ink-soft);font-size:1.15rem">We're parents first. That shapes everything about how we work and who we work with.</p>
+      <div class="sec-label" style="text-align:center" data-en="Our Heart" data-es="Nuestro Corazón">Our Heart</div>
+      <h2 class="sec-title" data-en="Rooted in what <em>matters most.</em>" data-es="Arraigados en lo que <em>más importa.</em>">Rooted in what <em>matters most.</em></h2>
+      <p style="color:var(--ink-soft);font-size:1.15rem" data-en="We're parents first. That shapes everything about how we work and who we work with." data-es="Somos padres ante todo. Eso moldea todo sobre cómo trabajamos y con quién trabajamos.">We're parents first. That shapes everything about how we work and who we work with.</p>
     </div>
     <div class="values-grid">
       <div class="value reveal">
-        <div class="vlabel">Family First</div>
-        <h3>The people behind the work.</h3>
-        <p>Everything we build is meant to make room for the people who matter most. Yours, and ours. Your business should support your life, not swallow it.</p>
+        <div class="vlabel" data-en="Family First" data-es="La Familia Primero">Family First</div>
+        <h3 data-en="The people behind the work." data-es="Las personas detrás del trabajo.">The people behind the work.</h3>
+        <p data-en="Everything we build is meant to make room for the people who matter most. Yours, and ours. Your business should support your life, not swallow it." data-es="Todo lo que construimos busca hacer espacio para las personas que más importan. Las tuyas y las nuestras. Tu negocio debería sostener tu vida, no consumirla.">Everything we build is meant to make room for the people who matter most. Yours, and ours. Your business should support your life, not swallow it.</p>
       </div>
       <div class="value reveal">
-        <div class="vlabel">Care Over Noise</div>
-        <h3>Steady beats loud.</h3>
-        <p>We believe in rest, in presence, in doing fewer things with more heart. Steady, intentional work that respects your time and your peace.</p>
+        <div class="vlabel" data-en="Care Over Noise" data-es="Cuidado Antes Que Ruido">Care Over Noise</div>
+        <h3 data-en="Steady beats loud." data-es="La constancia vence al ruido.">Steady beats loud.</h3>
+        <p data-en="We believe in rest, in presence, in doing fewer things with more heart. Steady, intentional work that respects your time and your peace." data-es="Creemos en el descanso, en la presencia, en hacer menos cosas con más corazón. Trabajo constante e intencional que respeta tu tiempo y tu paz.">We believe in rest, in presence, in doing fewer things with more heart. Steady, intentional work that respects your time and your peace.</p>
       </div>
       <div class="value reveal">
-        <div class="vlabel">Grounded</div>
-        <h3>True to who you are.</h3>
-        <p>We build a presence that lasts because it's rooted in your real story. Not a louder version of you. A clearer one.</p>
+        <div class="vlabel" data-en="Grounded" data-es="Con Raíces">Grounded</div>
+        <h3 data-en="True to who you are." data-es="Fiel a quien eres.">True to who you are.</h3>
+        <p data-en="We build a presence that lasts because it's rooted in your real story. Not a louder version of you. A clearer one." data-es="Construimos una presencia que perdura porque está arraigada en tu historia real. No una versión más ruidosa de ti. Una más clara.">We build a presence that lasts because it's rooted in your real story. Not a louder version of you. A clearer one.</p>
       </div>
     </div>
   </div>
@@ -316,16 +339,16 @@
 <section id="services">
   <div class="wrap">
     <div class="services-head reveal">
-      <div class="sec-label">What We Do</div>
-      <h2 class="sec-title">The full digital picture,<br><em>done right.</em></h2>
-      <p style="color:var(--ink-soft);font-size:1.15rem">Not a menu of services. One cohesive way of building and running your digital presence, end to end.</p>
+      <div class="sec-label" data-en="What We Do" data-es="Lo Que Hacemos">What We Do</div>
+      <h2 class="sec-title" data-en="The full digital picture,<br><em>done right.</em>" data-es="Todo el panorama digital,<br><em>bien hecho.</em>">The full digital picture,<br><em>done right.</em></h2>
+      <p style="color:var(--ink-soft);font-size:1.15rem" data-en="Not a menu of services. One cohesive way of building and running your digital presence, end to end." data-es="No un menú de servicios. Una forma cohesiva de construir y dirigir tu presencia digital, de principio a fin.">Not a menu of services. One cohesive way of building and running your digital presence, end to end.</p>
     </div>
     <div class="svc-grid reveal">
-      <div class="svc"><div class="svc-num">01</div><h3>Social Strategy</h3><p>A clear, intentional plan that turns your presence into a reason people choose you.</p></div>
-      <div class="svc"><div class="svc-num">02</div><h3>Content Creation</h3><p>Posts, stories, and visuals that look and sound unmistakably like your brand.</p></div>
-      <div class="svc"><div class="svc-num">03</div><h3>Paid Media &amp; Local Search</h3><p>Paid campaigns across Meta and Google, plus local search presence. Google Business, Apple Maps, and the SEO fundamentals that make sure your neighborhood finds you first.</p></div>
-      <div class="svc"><div class="svc-num">04</div><h3>AI &amp; Digital Tools</h3><p>Website design, CRM setup, and AI workflows built on Claude Cowork. Connected to Gmail, Stripe, QuickBooks, and the tools you already use. Built, connected, and handed over running.</p></div>
-      <div class="svc" style="grid-column:1/-1"><div class="svc-num">05</div><h3>Ongoing Partnership</h3><p>We stay close, stay responsive, and stay invested in what's working. Your growth is our ongoing work.</p></div>
+      <div class="svc"><div class="svc-num">01</div><h3 data-en="Social Strategy" data-es="Estrategia Social">Social Strategy</h3><p data-en="A clear, intentional plan that turns your presence into a reason people choose you." data-es="Un plan claro e intencional que convierte tu presencia en una razón para que la gente te elija.">A clear, intentional plan that turns your presence into a reason people choose you.</p></div>
+      <div class="svc"><div class="svc-num">02</div><h3 data-en="Content Creation" data-es="Creación de Contenido">Content Creation</h3><p data-en="Posts, stories, and visuals that look and sound unmistakably like your brand." data-es="Publicaciones, historias y visuales que se ven y suenan inconfundiblemente como tu marca.">Posts, stories, and visuals that look and sound unmistakably like your brand.</p></div>
+      <div class="svc"><div class="svc-num">03</div><h3 data-en="Paid Media &amp; Local Search" data-es="Publicidad y Búsqueda Local">Paid Media &amp; Local Search</h3><p data-en="Paid campaigns across Meta and Google, plus local search presence. Google Business, Apple Maps, and the SEO fundamentals that make sure your neighborhood finds you first." data-es="Campañas pagadas en Meta y Google, además de presencia en búsqueda local. Google Business, Apple Maps y los fundamentos de SEO que aseguran que tu vecindario te encuentre primero.">Paid campaigns across Meta and Google, plus local search presence. Google Business, Apple Maps, and the SEO fundamentals that make sure your neighborhood finds you first.</p></div>
+      <div class="svc"><div class="svc-num">04</div><h3 data-en="AI &amp; Digital Tools" data-es="IA y Herramientas Digitales">AI &amp; Digital Tools</h3><p data-en="Website design, CRM setup, and AI workflows built on Claude Cowork. Connected to Gmail, Stripe, QuickBooks, and the tools you already use. Built, connected, and handed over running." data-es="Diseño web, configuración de CRM y flujos de trabajo con IA construidos sobre Claude Cowork. Conectados a Gmail, Stripe, QuickBooks y las herramientas que ya usas. Construidos, conectados y entregados funcionando.">Website design, CRM setup, and AI workflows built on Claude Cowork. Connected to Gmail, Stripe, QuickBooks, and the tools you already use. Built, connected, and handed over running.</p></div>
+      <div class="svc" style="grid-column:1/-1"><div class="svc-num">05</div><h3 data-en="Ongoing Partnership" data-es="Acompañamiento Continuo">Ongoing Partnership</h3><p data-en="We stay close, stay responsive, and stay invested in what's working. Your growth is our ongoing work." data-es="Nos mantenemos cerca, atentos e invertidos en lo que funciona. Tu crecimiento es nuestro trabajo continuo.">We stay close, stay responsive, and stay invested in what's working. Your growth is our ongoing work.</p></div>
     </div>
   </div>
 </section>
@@ -333,28 +356,28 @@
 <section class="ai" id="ai">
   <div class="wrap">
     <div class="ai-head reveal">
-      <div class="sec-label">Modern Tools, Made Useful</div>
-      <h2 class="sec-title">AI that does the busywork,<br><em>so you don't have to.</em></h2>
-      <p class="ai-intro">Generative AI is quietly changing what a small team can do. We bring it to your business in plain, practical ways. Built on Claude Cowork and connected to the tools you already use, we set up workflows that handle the work that used to eat your evenings. The point was never to do more. It's to leave more room for the life behind the business.</p>
+      <div class="sec-label" data-en="Modern Tools, Made Useful" data-es="Herramientas Modernas, Hechas Útiles">Modern Tools, Made Useful</div>
+      <h2 class="sec-title" data-en="AI that does the busywork,<br><em>so you don't have to.</em>" data-es="IA que hace el trabajo tedioso,<br><em>para que tú no tengas que hacerlo.</em>">AI that does the busywork,<br><em>so you don't have to.</em></h2>
+      <p class="ai-intro" data-en="Generative AI is quietly changing what a small team can do. We bring it to your business in plain, practical ways. Built on Claude Cowork and connected to the tools you already use, we set up workflows that handle the work that used to eat your evenings. The point was never to do more. It's to leave more room for the life behind the business." data-es="La IA generativa está cambiando silenciosamente lo que un equipo pequeño puede lograr. La llevamos a tu negocio de formas claras y prácticas. Construida sobre Claude Cowork y conectada a las herramientas que ya usas, configuramos flujos de trabajo que manejan el trabajo que antes te robaba las noches. El punto nunca fue hacer más. Es dejar más espacio para la vida detrás del negocio.">Generative AI is quietly changing what a small team can do. We bring it to your business in plain, practical ways. Built on Claude Cowork and connected to the tools you already use, we set up workflows that handle the work that used to eat your evenings. The point was never to do more. It's to leave more room for the life behind the business.</p>
     </div>
     <div class="flow-grid reveal">
       <div class="flow">
-        <div class="fnum">Workflow 01</div>
-        <h3>Invoices in seconds</h3>
-        <p>Connect Stripe, Square, or QuickBooks so a finished job becomes a sent invoice. No spreadsheets, no chasing payments after dinner.</p>
+        <div class="fnum" data-en="Workflow 01" data-es="Flujo 01">Workflow 01</div>
+        <h3 data-en="Invoices in seconds" data-es="Facturas en segundos">Invoices in seconds</h3>
+        <p data-en="Connect Stripe, Square, or QuickBooks so a finished job becomes a sent invoice. No spreadsheets, no chasing payments after dinner." data-es="Conecta Stripe, Square o QuickBooks para que un trabajo terminado se convierta en una factura enviada. Sin hojas de cálculo, sin perseguir pagos después de la cena.">Connect Stripe, Square, or QuickBooks so a finished job becomes a sent invoice. No spreadsheets, no chasing payments after dinner.</p>
       </div>
       <div class="flow">
-        <div class="fnum">Workflow 02</div>
-        <h3>Your inbox, handled</h3>
-        <p>Draft replies, quotes, and follow-ups from Gmail or Outlook in your own voice, ready for a quick look before they go out.</p>
+        <div class="fnum" data-en="Workflow 02" data-es="Flujo 02">Workflow 02</div>
+        <h3 data-en="Your inbox, handled" data-es="Tu bandeja, resuelta">Your inbox, handled</h3>
+        <p data-en="Draft replies, quotes, and follow-ups from Gmail or Outlook in your own voice, ready for a quick look before they go out." data-es="Redacta respuestas, cotizaciones y seguimientos desde Gmail u Outlook con tu propia voz, listos para una revisión rápida antes de enviarlos.">Draft replies, quotes, and follow-ups from Gmail or Outlook in your own voice, ready for a quick look before they go out.</p>
       </div>
       <div class="flow">
-        <div class="fnum">Workflow 03</div>
-        <h3>Never miss a lead</h3>
-        <p>New inquiries flow into your CRM and onto your calendar on their own, so every message gets a warm, timely reply.</p>
+        <div class="fnum" data-en="Workflow 03" data-es="Flujo 03">Workflow 03</div>
+        <h3 data-en="Never miss a lead" data-es="Nunca pierdas un cliente">Never miss a lead</h3>
+        <p data-en="New inquiries flow into your CRM and onto your calendar on their own, so every message gets a warm, timely reply." data-es="Las nuevas consultas llegan solas a tu CRM y a tu calendario, para que cada mensaje reciba una respuesta cálida y oportuna.">New inquiries flow into your CRM and onto your calendar on their own, so every message gets a warm, timely reply.</p>
       </div>
     </div>
-    <div class="tools-label reveal">Built on Claude Cowork · Connected to the tools you already use</div>
+    <div class="tools-label reveal" data-en="Built on Claude Cowork · Connected to the tools you already use" data-es="Construido sobre Claude Cowork · Conectado a las herramientas que ya usas">Built on Claude Cowork · Connected to the tools you already use</div>
     <div class="tool-chips reveal">
       <span class="chip lead-chip">Claude Cowork</span>
       <span class="chip">Gmail</span>
@@ -377,81 +400,81 @@
 <section class="process" id="process">
   <div class="wrap">
     <div class="process-intro reveal">
-      <div class="sec-label">How We Work</div>
-      <h2 class="sec-title">Clear from day one,<br><em>built to last.</em></h2>
-      <p style="color:var(--ink-soft);font-size:1.15rem">Every partnership moves through four phases. No hand-offs, no account managers in the way. The same team that builds your digital presence is the one that runs it.</p>
+      <div class="sec-label" data-en="How We Work" data-es="Cómo Trabajamos">How We Work</div>
+      <h2 class="sec-title" data-en="Clear from day one,<br><em>built to last.</em>" data-es="Claro desde el primer día,<br><em>hecho para durar.</em>">Clear from day one,<br><em>built to last.</em></h2>
+      <p style="color:var(--ink-soft);font-size:1.15rem" data-en="Every partnership moves through four phases. No hand-offs, no account managers in the way. The same team that builds your digital presence is the one that runs it." data-es="Cada colaboración avanza por cuatro fases. Sin traspasos, sin gerentes de cuenta en el medio. El mismo equipo que construye tu presencia digital es el que la dirige.">Every partnership moves through four phases. No hand-offs, no account managers in the way. The same team that builds your digital presence is the one that runs it.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
-        <div class="step-num"><span class="step-dot"></span>01 &nbsp; Discovery</div>
-        <h3>The right-fit conversation.</h3>
-        <p>We start by learning your business, your customers, and where your presence stands today. We ask the questions most agencies skip. Strategy built on real understanding works differently than strategy built on assumptions.</p>
+        <div class="step-num" data-en="<span class=&quot;step-dot&quot;></span>01 &nbsp; Discovery" data-es="<span class=&quot;step-dot&quot;></span>01 &nbsp; Descubrimiento"><span class="step-dot"></span>01 &nbsp; Discovery</div>
+        <h3 data-en="The right-fit conversation." data-es="La conversación correcta.">The right-fit conversation.</h3>
+        <p data-en="We start by learning your business, your customers, and where your presence stands today. We ask the questions most agencies skip. Strategy built on real understanding works differently than strategy built on assumptions." data-es="Empezamos por conocer tu negocio, tus clientes y dónde está tu presencia hoy. Hacemos las preguntas que la mayoría de las agencias omite. Una estrategia basada en comprensión real funciona distinto a una basada en suposiciones.">We start by learning your business, your customers, and where your presence stands today. We ask the questions most agencies skip. Strategy built on real understanding works differently than strategy built on assumptions.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num"><span class="step-dot"></span>02 &nbsp; Onboarding</div>
-        <h3>Organized before anything goes live.</h3>
-        <p>Brand audit. Channel setup. Content pillars. Voice guide. Website, CRM, and tools configured from the start. We build the foundation that keeps everything consistent. Nothing we create ever feels off-brand or accidental.</p>
+        <div class="step-num" data-en="<span class=&quot;step-dot&quot;></span>02 &nbsp; Onboarding" data-es="<span class=&quot;step-dot&quot;></span>02 &nbsp; Integración"><span class="step-dot"></span>02 &nbsp; Onboarding</div>
+        <h3 data-en="Organized before anything goes live." data-es="Organizado antes de que algo salga al aire.">Organized before anything goes live.</h3>
+        <p data-en="Brand audit. Channel setup. Content pillars. Voice guide. Website, CRM, and tools configured from the start. We build the foundation that keeps everything consistent. Nothing we create ever feels off-brand or accidental." data-es="Auditoría de marca. Configuración de canales. Pilares de contenido. Guía de voz. Sitio web, CRM y herramientas configurados desde el inicio. Construimos la base que mantiene todo consistente. Nada de lo que creamos se siente fuera de marca o accidental.">Brand audit. Channel setup. Content pillars. Voice guide. Website, CRM, and tools configured from the start. We build the foundation that keeps everything consistent. Nothing we create ever feels off-brand or accidental.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num"><span class="step-dot"></span>03 &nbsp; Creation</div>
-        <h3>Content that sounds like you.</h3>
-        <p>Posts, reels, stories, and paid campaigns. Produced on schedule, reviewed with you, and published without you having to chase anyone. Modern tools power the pace. Your voice stays the brand.</p>
+        <div class="step-num" data-en="<span class=&quot;step-dot&quot;></span>03 &nbsp; Creation" data-es="<span class=&quot;step-dot&quot;></span>03 &nbsp; Creación"><span class="step-dot"></span>03 &nbsp; Creation</div>
+        <h3 data-en="Content that sounds like you." data-es="Contenido que suena como tú.">Content that sounds like you.</h3>
+        <p data-en="Posts, reels, stories, and paid campaigns. Produced on schedule, reviewed with you, and published without you having to chase anyone. Modern tools power the pace. Your voice stays the brand." data-es="Publicaciones, reels, historias y campañas pagadas. Producidas a tiempo, revisadas contigo y publicadas sin que tengas que perseguir a nadie. Las herramientas modernas marcan el ritmo. Tu voz sigue siendo la marca.">Posts, reels, stories, and paid campaigns. Produced on schedule, reviewed with you, and published without you having to chase anyone. Modern tools power the pace. Your voice stays the brand.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num"><span class="step-dot"></span>04 &nbsp; Partnership</div>
-        <h3>Close, responsive, ongoing.</h3>
-        <p>Monthly performance reviews. Real-time communication. We stay close enough to catch the shift before it becomes a problem, and present enough that your brand never goes quiet.</p>
+        <div class="step-num" data-en="<span class=&quot;step-dot&quot;></span>04 &nbsp; Partnership" data-es="<span class=&quot;step-dot&quot;></span>04 &nbsp; Colaboración"><span class="step-dot"></span>04 &nbsp; Partnership</div>
+        <h3 data-en="Close, responsive, ongoing." data-es="Cercana, atenta, continua.">Close, responsive, ongoing.</h3>
+        <p data-en="Monthly performance reviews. Real-time communication. We stay close enough to catch the shift before it becomes a problem, and present enough that your brand never goes quiet." data-es="Revisiones de desempeño mensuales. Comunicación en tiempo real. Nos mantenemos lo bastante cerca para detectar el cambio antes de que sea un problema, y lo bastante presentes para que tu marca nunca quede en silencio.">Monthly performance reviews. Real-time communication. We stay close enough to catch the shift before it becomes a problem, and present enough that your brand never goes quiet.</p>
       </div>
     </div>
-    <div class="process-note reveal">We take on a limited number of clients at a time. <em>That's the point.</em></div>
+    <div class="process-note reveal" data-en="We take on a limited number of clients at a time. <em>That's the point.</em>" data-es="Aceptamos un número limitado de clientes a la vez. <em>Ese es el punto.</em>">We take on a limited number of clients at a time. <em>That's the point.</em></div>
   </div>
 </section>
 
 <section class="clients" id="work">
   <div class="wrap">
     <div class="services-head reveal">
-      <div class="sec-label">Selected Work</div>
-      <h2 class="sec-title">Local brands,<br><em>lasting presence.</em></h2>
-      <p style="color:var(--ink-soft);font-size:1.15rem">A handful of the brands we care for. Client details shared on request.</p>
+      <div class="sec-label" data-en="Selected Work" data-es="Trabajo Seleccionado">Selected Work</div>
+      <h2 class="sec-title" data-en="Local brands,<br><em>lasting presence.</em>" data-es="Marcas locales,<br><em>presencia duradera.</em>">Local brands,<br><em>lasting presence.</em></h2>
+      <p style="color:var(--ink-soft);font-size:1.15rem" data-en="A handful of the brands we care for. Client details shared on request." data-es="Un puñado de las marcas que cuidamos. Detalles de clientes compartidos a solicitud.">A handful of the brands we care for. Client details shared on request.</p>
     </div>
     <div class="client-grid">
       <div class="client reveal">
-        <div class="tag">Health &amp; Wellness · Miami</div>
-        <h3>A wellness studio in Miami.</h3>
-        <p>An aesthetic and wellness practice building a calm, trustworthy presence in a competitive market. They became the neighborhood's obvious choice.</p>
+        <div class="tag" data-en="Health &amp; Wellness · Miami" data-es="Salud y Bienestar · Miami">Health &amp; Wellness · Miami</div>
+        <h3 data-en="A wellness studio in Miami." data-es="Un estudio de bienestar en Miami.">A wellness studio in Miami.</h3>
+        <p data-en="An aesthetic and wellness practice building a calm, trustworthy presence in a competitive market. They became the neighborhood's obvious choice." data-es="Una práctica estética y de bienestar construyendo una presencia tranquila y confiable en un mercado competitivo. Se convirtieron en la opción obvia del vecindario.">An aesthetic and wellness practice building a calm, trustworthy presence in a competitive market. They became the neighborhood's obvious choice.</p>
       </div>
       <div class="client reveal">
-        <div class="tag">Pediatric Therapy · Miami</div>
-        <h3>A pediatric therapy provider.</h3>
-        <p>A speech-language pathology practice with a warm, human voice that meets bilingual families exactly where they are.</p>
+        <div class="tag" data-en="Pediatric Therapy · Miami" data-es="Terapia Pediátrica · Miami">Pediatric Therapy · Miami</div>
+        <h3 data-en="A pediatric therapy provider." data-es="Un proveedor de terapia pediátrica.">A pediatric therapy provider.</h3>
+        <p data-en="A speech-language pathology practice with a warm, human voice that meets bilingual families exactly where they are." data-es="Una práctica de patología del habla y lenguaje con una voz cálida y humana que recibe a las familias bilingües justo donde están.">A speech-language pathology practice with a warm, human voice that meets bilingual families exactly where they are.</p>
       </div>
       <div class="client reveal">
-        <div class="tag">Real Estate Media · South Florida</div>
-        <h3>A real estate video company.</h3>
-        <p>Real estate media and drone aerials for South Florida properties. The studio agents call when a listing needs to stand out.</p>
+        <div class="tag" data-en="Real Estate Media · South Florida" data-es="Medios Inmobiliarios · Sur de Florida">Real Estate Media · South Florida</div>
+        <h3 data-en="A real estate video company." data-es="Una empresa de video inmobiliario.">A real estate video company.</h3>
+        <p data-en="Real estate media and drone aerials for South Florida properties. The studio agents call when a listing needs to stand out." data-es="Medios inmobiliarios y tomas aéreas con dron para propiedades del sur de Florida. El estudio al que los agentes llaman cuando una propiedad necesita destacar.">Real estate media and drone aerials for South Florida properties. The studio agents call when a listing needs to stand out.</p>
       </div>
     </div>
-    <div class="work-note reveal">Curious about the work? <em>We'd be glad to share it.</em> &nbsp;<a href="#contact" style="color:var(--mauve-deep);font-style:italic;border-bottom:1px solid var(--mauve);padding-bottom:2px">Get in touch</a></div>
+    <div class="work-note reveal"><span data-en="Curious about the work? <em>We'd be glad to share it.</em>" data-es="¿Te da curiosidad el trabajo? <em>Con gusto lo compartimos.</em>">Curious about the work? <em>We'd be glad to share it.</em></span> &nbsp;<a href="#contact" style="color:var(--mauve-deep);font-style:italic;border-bottom:1px solid var(--mauve);padding-bottom:2px" data-en="Get in touch" data-es="Contáctanos">Get in touch</a></div>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
     <div class="reveal">
-      <div class="sec-label">Let's Talk</div>
-      <h2>Tell us about <em>your brand.</em></h2>
-      <p class="intro">We take on a limited number of clients so each one gets our full attention. If you're building something you love while raising the people you love, we'd be glad to hear from you.</p>
+      <div class="sec-label" data-en="Let's Talk" data-es="Hablemos">Let's Talk</div>
+      <h2 data-en="Tell us about <em>your brand.</em>" data-es="Cuéntanos sobre <em>tu marca.</em>">Tell us about <em>your brand.</em></h2>
+      <p class="intro" data-en="We take on a limited number of clients so each one gets our full attention. If you're building something you love while raising the people you love, we'd be glad to hear from you." data-es="Aceptamos un número limitado de clientes para que cada uno reciba toda nuestra atención. Si estás construyendo algo que amas mientras crías a las personas que amas, nos encantaría saber de ti.">We take on a limited number of clients so each one gets our full attention. If you're building something you love while raising the people you love, we'd be glad to hear from you.</p>
     </div>
     <div class="reveal">
       <form id="inquiry">
         <input type="hidden" name="_subject" value="New inquiry — Magia Moderna">
-        <div class="field"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+        <div class="field"><label for="name" data-en="Name" data-es="Nombre">Name</label><input type="text" id="name" name="name" required></div>
         <div class="row">
-          <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-          <div class="field"><label for="business">Business</label><input type="text" id="business" name="business"></div>
+          <div class="field"><label for="email" data-en="Email" data-es="Correo">Email</label><input type="email" id="email" name="email" required></div>
+          <div class="field"><label for="business" data-en="Business" data-es="Negocio">Business</label><input type="text" id="business" name="business"></div>
         </div>
-        <div class="field"><label for="message">How can we help?</label><textarea id="message" name="message" required></textarea></div>
-        <button type="submit" class="submit">Send Inquiry</button>
+        <div class="field"><label for="message" data-en="How can we help?" data-es="¿Cómo podemos ayudar?">How can we help?</label><textarea id="message" name="message" required></textarea></div>
+        <button type="submit" class="submit" data-en="Send Inquiry" data-es="Enviar Consulta">Send Inquiry</button>
         <div class="form-msg" id="formMsg"></div>
       </form>
     </div>
@@ -461,13 +484,13 @@
 <footer>
   <div class="wrap">
     <div class="foot-logo">Magia <span>Moderna</span></div>
-    <div class="foot-tag">The Obvious Choice In Your Community</div>
+    <div class="foot-tag" data-en="The Obvious Choice In Your Community" data-es="La Opción Obvia En Tu Comunidad">The Obvious Choice In Your Community</div>
     <div class="foot-social">
-      <a href="#contact">Inquire</a>
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
+      <a href="#contact" data-en="Inquire" data-es="Contáctanos">Inquire</a>
+      <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+      <a href="#work" data-en="Work" data-es="Proyectos">Work</a>
     </div>
-    <div class="foot-copy">© 2026 Magia Moderna · A Jardines family studio · Miami, FL</div>
+    <div class="foot-copy" data-en="© 2026 Magia Moderna · A Jardines family studio · Miami, FL" data-es="© 2026 Magia Moderna · Un estudio de la familia Jardines · Miami, FL">© 2026 Magia Moderna · A Jardines family studio · Miami, FL</div>
   </div>
 </footer>
 
@@ -490,6 +513,41 @@
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+  // language toggle (EN/ES) — swaps data-en/data-es content, persists choice
+  const I18N={
+    title:{en:"Magia Moderna · A Family Studio in Miami",es:"Magia Moderna · Un Estudio Familiar en Miami"},
+    desc:{en:"Magia Moderna is a family-run digital studio in Miami. We build quiet, lasting presence for local businesses and set up practical AI workflows on Claude Cowork, connected to Gmail, Stripe, QuickBooks, HubSpot, and the tools you already use.",es:"Magia Moderna es un estudio digital familiar en Miami. Construimos una presencia tranquila y duradera para negocios locales y configuramos flujos de trabajo prácticos con IA en Claude Cowork, conectados a Gmail, Stripe, QuickBooks, HubSpot y las herramientas que ya usas."},
+    menu:{en:"Menu",es:"Menú"},
+    openMenu:{en:"Open menu",es:"Abrir menú"},
+    closeMenu:{en:"Close menu",es:"Cerrar menú"},
+    formOk:{en:"Thank you. We'll be in touch soon.",es:"Gracias. Nos pondremos en contacto pronto."},
+    formErr:{en:"Something went wrong. Please email us instead.",es:"Algo salió mal. Por favor escríbenos por correo."},
+    formNet:{en:"Network error. Please try again.",es:"Error de red. Por favor intenta de nuevo."}
+  };
+  const metaDesc=document.querySelector('meta[name="description"]');
+  const langButtons=document.querySelectorAll('.lang-toggle button');
+  let currentLang='en';
+  function setLang(lang){
+    if(lang!=='en'&&lang!=='es')lang='en';
+    currentLang=lang;
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      const t=el.getAttribute('data-'+lang);
+      if(t!==null)el.innerHTML=t;
+    });
+    document.title=I18N.title[lang];
+    if(metaDesc)metaDesc.setAttribute('content',I18N.desc[lang]);
+    openBtn.textContent=I18N.menu[lang];
+    openBtn.setAttribute('aria-label',I18N.openMenu[lang]);
+    closeBtn.setAttribute('aria-label',I18N.closeMenu[lang]);
+    langButtons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+    try{localStorage.setItem('mm-lang',lang);}catch(e){}
+  }
+  langButtons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  let savedLang='en';
+  try{savedLang=localStorage.getItem('mm-lang')||'en';}catch(e){}
+  setLang(savedLang);
+
   // Formspree submit — FormData (Mobile Safari compatible). Replace ENDPOINT with your Formspree form ID.
   const FORMSPREE_ENDPOINT="https://formspree.io/f/mvzynrpb";
   const form=document.getElementById('inquiry');
@@ -502,14 +560,14 @@
       const res=await fetch(FORMSPREE_ENDPOINT,{method:'POST',body:data,headers:{'Accept':'application/json'}});
       if(res.ok){
         form.reset();
-        msg.textContent="Thank you. We'll be in touch soon.";
+        msg.textContent=I18N.formOk[currentLang];
         msg.classList.add('show','ok');
       }else{
-        msg.textContent="Something went wrong. Please email us instead.";
+        msg.textContent=I18N.formErr[currentLang];
         msg.classList.add('show','err');
       }
     }catch(err){
-      msg.textContent="Network error. Please try again.";
+      msg.textContent=I18N.formNet[currentLang];
       msg.classList.add('show','err');
     }
   });
