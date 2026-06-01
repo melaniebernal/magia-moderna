@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Magia Moderna · A Family Studio in Miami</title>
-<meta name="description" content="Magia Moderna is a family-run digital studio in Miami. Run by parents, we build quiet, lasting presence for the local businesses people already love. Rooted in care, intention, and the people behind the work.">
+<meta name="description" content="Magia Moderna is a family-run digital studio in Miami. We build quiet, lasting presence for local businesses and set up practical AI workflows on Claude Cowork, connected to Gmail, Stripe, QuickBooks, HubSpot, and the tools you already use.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -130,6 +130,25 @@
   .svc h3{font-family:var(--display);font-size:2rem;font-weight:500;margin-bottom:14px}
   .svc p{color:var(--ink-soft);font-size:1.05rem}
 
+  /* AI */
+  .ai{background:var(--mauve-deep);color:var(--cream)}
+  .ai .sec-label{color:var(--rose)}
+  .ai .sec-title{color:var(--cream)}
+  .ai .sec-title em{color:var(--rose)}
+  .ai-head{max-width:700px;margin-bottom:60px}
+  .ai-intro{font-size:1.18rem;color:rgba(245,237,224,.82);line-height:1.7}
+  .flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(245,237,224,.12);border:1px solid rgba(245,237,224,.14);border-radius:6px;overflow:hidden;margin-bottom:60px}
+  .flow{background:var(--mauve-deep);padding:42px 36px;transition:.4s}
+  .flow:hover{background:#26374f}
+  .flow .fnum{font-family:var(--ui);font-size:.78rem;letter-spacing:.2em;color:var(--rose);margin-bottom:18px}
+  .flow h3{font-family:var(--display);font-size:1.55rem;font-weight:500;margin-bottom:12px;color:var(--cream)}
+  .flow p{font-size:1rem;color:rgba(245,237,224,.72);line-height:1.65}
+  .tools-label{font-family:var(--ui);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,224,.5);margin-bottom:24px;text-align:center}
+  .tool-chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:840px;margin:0 auto}
+  .chip{font-family:var(--ui);font-size:.82rem;letter-spacing:.03em;color:var(--cream);background:rgba(245,237,224,.08);border:1px solid rgba(245,237,224,.18);border-radius:30px;padding:9px 20px;transition:.3s}
+  .chip:hover{background:rgba(201,169,110,.18);border-color:var(--rose)}
+  .chip.lead-chip{background:rgba(201,169,110,.2);border-color:var(--rose);color:var(--rose)}
+
   /* PROCESS */
   .process{background:var(--cream-deep)}
   .process-intro{max-width:620px;margin-bottom:72px}
@@ -191,6 +210,7 @@
     .nav-links{display:none}.menu-btn{display:block}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
     .svc-grid{grid-template-columns:1fr}
+    .flow-grid{grid-template-columns:1fr}
     .values-grid{grid-template-columns:1fr;gap:44px}
     .steps{grid-template-columns:1fr;gap:48px}.steps:before{display:none}
     .client-grid{grid-template-columns:1fr}
@@ -210,7 +230,7 @@
       <a href="#about">Studio</a>
       <a href="#values">Our Heart</a>
       <a href="#services">Services</a>
-      <a href="#process">Process</a>
+      <a href="#ai">AI Tools</a>
       <a href="#contact" class="nav-cta">Inquire</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
@@ -224,6 +244,7 @@
     <a href="#about">Studio</a>
     <a href="#values">Our Heart</a>
     <a href="#services">Services</a>
+    <a href="#ai">AI Tools</a>
     <a href="#process">Process</a>
     <a href="#work">Work</a>
     <a href="#contact" class="m-cta">Inquire</a>
@@ -303,8 +324,48 @@
       <div class="svc"><div class="svc-num">01</div><h3>Social Strategy</h3><p>A clear, intentional plan that turns your presence into a reason people choose you.</p></div>
       <div class="svc"><div class="svc-num">02</div><h3>Content Creation</h3><p>Posts, stories, and visuals that look and sound unmistakably like your brand.</p></div>
       <div class="svc"><div class="svc-num">03</div><h3>Paid Media &amp; Local Search</h3><p>Paid campaigns across Meta and Google, plus local search presence. Google Business, Apple Maps, and the SEO fundamentals that make sure your neighborhood finds you first.</p></div>
-      <div class="svc"><div class="svc-num">04</div><h3>Website &amp; Digital Tools</h3><p>Website design, CRM setup, automation workflows, and AI tools. Built, connected, and handed over running.</p></div>
+      <div class="svc"><div class="svc-num">04</div><h3>AI &amp; Digital Tools</h3><p>Website design, CRM setup, and AI workflows built on Claude Cowork. Connected to Gmail, Stripe, QuickBooks, and the tools you already use. Built, connected, and handed over running.</p></div>
       <div class="svc" style="grid-column:1/-1"><div class="svc-num">05</div><h3>Ongoing Partnership</h3><p>We stay close, stay responsive, and stay invested in what's working. Your growth is our ongoing work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ai" id="ai">
+  <div class="wrap">
+    <div class="ai-head reveal">
+      <div class="sec-label">Modern Tools, Made Useful</div>
+      <h2 class="sec-title">AI that does the busywork,<br><em>so you don't have to.</em></h2>
+      <p class="ai-intro">Generative AI is quietly changing what a small team can do. We bring it to your business in plain, practical ways. Built on Claude Cowork and connected to the tools you already use, we set up workflows that handle the work that used to eat your evenings.</p>
+    </div>
+    <div class="flow-grid reveal">
+      <div class="flow">
+        <div class="fnum">Workflow 01</div>
+        <h3>Invoices in seconds</h3>
+        <p>Connect Stripe, Square, or QuickBooks so a finished job becomes a sent invoice. No spreadsheets, no chasing payments after dinner.</p>
+      </div>
+      <div class="flow">
+        <div class="fnum">Workflow 02</div>
+        <h3>Your inbox, handled</h3>
+        <p>Draft replies, quotes, and follow-ups from Gmail or Outlook in your own voice, ready for a quick look before they go out.</p>
+      </div>
+      <div class="flow">
+        <div class="fnum">Workflow 03</div>
+        <h3>Never miss a lead</h3>
+        <p>New inquiries flow into your CRM and onto your calendar on their own, so every message gets a warm, timely reply.</p>
+      </div>
+    </div>
+    <div class="tools-label reveal">Built on Claude Cowork · Connected to the tools you already use</div>
+    <div class="tool-chips reveal">
+      <span class="chip lead-chip">Claude Cowork</span>
+      <span class="chip">Gmail</span>
+      <span class="chip">Google Workspace</span>
+      <span class="chip">Google Calendar</span>
+      <span class="chip">Stripe</span>
+      <span class="chip">Square</span>
+      <span class="chip">QuickBooks</span>
+      <span class="chip">HubSpot</span>
+      <span class="chip">Slack</span>
+      <span class="chip">Canva</span>
     </div>
   </div>
 </section>
