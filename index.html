@@ -66,15 +66,15 @@
   .lang-toggle.dark button{color:rgba(245,237,224,.6)}
   .lang-toggle.dark button:hover:not(.active){color:var(--cream)}
   .lang-toggle.dark button.active{background:var(--rose);color:var(--mauve-deep)}
-  .mobile-lang{margin-top:34px;opacity:0;transition:.35s .45s}
+  .mobile-lang{margin:0 0 30px;opacity:0;transition:.35s .12s}
   .mobile-menu.open .mobile-lang{opacity:1}
 
   /* MOBILE MENU OVERLAY */
-  .mobile-menu{position:fixed;inset:0;z-index:200;background:var(--mauve-deep);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.2,.7,.2,1)}
+  .mobile-menu{position:fixed;inset:0;z-index:200;background:var(--mauve-deep);display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding:84px 0 48px;overflow-y:auto;-webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.2,.7,.2,1)}
   .mobile-menu.open{opacity:1;pointer-events:all}
-  .mobile-close{position:absolute;top:26px;right:28px;font-family:var(--ui);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,224,.5);background:none;border:none;cursor:pointer;padding:8px;transition:.25s}
+  .mobile-close{position:fixed;top:26px;right:28px;z-index:2;font-family:var(--ui);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,224,.5);background:none;border:none;cursor:pointer;padding:8px;transition:.25s}
   .mobile-close:hover{color:var(--cream)}
-  .mobile-logo{font-family:var(--display);font-size:1.3rem;font-weight:600;color:rgba(245,237,224,.25);letter-spacing:.04em;position:absolute;top:28px;left:28px}
+  .mobile-logo{font-family:var(--display);font-size:1.3rem;font-weight:600;color:rgba(245,237,224,.25);letter-spacing:.04em;position:fixed;top:28px;left:28px;z-index:2}
   .mobile-logo span{font-style:italic}
   .mobile-links{display:flex;flex-direction:column;align-items:center;width:100%;gap:0}
   .mobile-links a{font-family:var(--display);font-size:clamp(2.2rem,9vw,3rem);font-weight:400;color:var(--cream);text-align:center;padding:16px 40px;width:100%;letter-spacing:.01em;border-bottom:1px solid rgba(245,237,224,.07);transition:.25s;opacity:0;transform:translateY(16px)}
@@ -259,6 +259,10 @@
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <div class="mobile-logo">Magia <span>Moderna</span></div>
   <button class="mobile-close" id="menuClose" aria-label="Close menu" data-en="✕ Close" data-es="✕ Cerrar">✕ Close</button>
+  <div class="lang-toggle dark mobile-lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" class="active">EN</button>
+    <button type="button" data-lang="es">ES</button>
+  </div>
   <nav class="mobile-links">
     <a href="#about" data-en="Studio" data-es="Estudio">Studio</a>
     <a href="#values" data-en="Our Heart" data-es="Nuestro Corazón">Our Heart</a>
@@ -268,10 +272,6 @@
     <a href="#work" data-en="Work" data-es="Proyectos">Work</a>
     <a href="#contact" class="m-cta" data-en="Inquire" data-es="Contáctanos">Inquire</a>
   </nav>
-  <div class="lang-toggle dark mobile-lang" role="group" aria-label="Language">
-    <button type="button" data-lang="en" class="active">EN</button>
-    <button type="button" data-lang="es">ES</button>
-  </div>
 </div>
 
 <header id="top">
