@@ -70,8 +70,9 @@
   .mobile-lang button{padding:9px 22px;font-size:.78rem}
 
   /* MOBILE MENU OVERLAY */
-  .mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;height:100vh;height:100dvh;z-index:200;background:var(--mauve-deep);display:none;overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(30px + env(safe-area-inset-bottom))}
+  .mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;height:100vh;height:100dvh;z-index:200;background:var(--mauve-deep);display:none;overflow:hidden}
   .mobile-menu.open{display:block}
+  .mobile-scroll{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(30px + env(safe-area-inset-bottom))}
   .mobile-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 24px}
   .mobile-close{font-family:var(--ui);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,224,.5);background:none;border:none;cursor:pointer;padding:8px;transition:.25s;flex-shrink:0}
   .mobile-close:hover{color:var(--cream)}
@@ -253,6 +254,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-scroll">
   <div class="mobile-top">
     <div class="mobile-logo">Magia <span>Moderna</span></div>
     <button class="mobile-close" id="menuClose" aria-label="Close menu" data-en="✕ Close" data-es="✕ Cerrar">✕ Close</button>
@@ -270,8 +272,9 @@
     <a href="#work" data-en="Work" data-es="Proyectos">Work</a>
     <a href="#contact" class="m-cta" data-en="Inquire" data-es="Contáctanos">Inquire</a>
   </nav>
-  <div class="mobile-ver">build 10</div>
+  <div class="mobile-ver">build 11</div>
   <div style="height:700px" aria-hidden="true"></div>
+  </div>
 </div>
 
 <header id="top">
